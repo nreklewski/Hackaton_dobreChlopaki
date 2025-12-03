@@ -7,27 +7,48 @@ export default function Home() {
       {/* Header */}
       <header className="sticky top-0 z-50 bg-white shadow-sm border-b-2 border-primary">
         <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <Link href="/" className="flex-shrink-0">
+          <Link href="/" className="shrink-0">
             <Image
               src="/logo.png"
               alt="Karta Łodzianina"
               width={160}
               height={34}
-              className="h-auto w-[160px]"
+              className="h-auto w-40"
               priority
             />
           </Link>
 
           <nav className="hidden lg:flex items-center space-x-6 font-medium text-sm uppercase tracking-wide">
-            <Link href="#" className="hover:text-primary transition-colors">Home</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Pakiety</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Aktualności</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Wydarzenia</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Zniżki</Link>
-            <Link href="#" className="hover:text-primary transition-colors">FAQ</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Punkty obsługi</Link>
-            <Link href="#" className="hover:text-primary transition-colors">Zostań partnerem</Link>
-            <Link href="#" className="hover:text-primary transition-colors text-primary font-bold">Załóż konto</Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Home
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Pakiety
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Aktualności
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Wydarzenia
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Zniżki
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              FAQ
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Punkty obsługi
+            </Link>
+            <Link href="#" className="hover:text-primary transition-colors">
+              Zostań partnerem
+            </Link>
+            <Link
+              href="#"
+              className="hover:text-primary transition-colors text-primary font-bold"
+            >
+              Załóż konto
+            </Link>
           </nav>
 
           <div className="flex items-center space-x-4">
@@ -37,9 +58,7 @@ export default function Home() {
             >
               <span className="mr-2">👤</span> Zaloguj
             </Link>
-            <button className="lg:hidden text-2xl text-primary">
-              ☰
-            </button>
+            <button className="lg:hidden text-2xl text-primary">☰</button>
           </div>
         </div>
       </header>
@@ -118,7 +137,10 @@ export default function Home() {
           </div>
 
           <div className="text-center mt-12">
-            <Link href="#" className="inline-block px-8 py-3 bg-secondary text-white font-bold uppercase hover:bg-primary transition-colors">
+            <Link
+              href="#"
+              className="inline-block px-8 py-3 bg-secondary text-white font-bold uppercase hover:bg-primary transition-colors"
+            >
               Zobacz wszystkie
             </Link>
           </div>
@@ -128,13 +150,27 @@ export default function Home() {
       {/* App Download Section */}
       <section className="py-16 bg-primary text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-8 uppercase">Pobierz aplikację</h2>
+          <h2 className="text-3xl font-bold mb-8 uppercase">
+            Pobierz aplikację
+          </h2>
           <div className="flex flex-wrap justify-center gap-4">
             <Link href="#" className="hover:opacity-90 transition-opacity">
-              <Image src="/appstore.png" alt="App Store" width={140} height={45} className="h-12 w-auto" />
+              <Image
+                src="/appstore.png"
+                alt="App Store"
+                width={140}
+                height={45}
+                className="h-12 w-auto"
+              />
             </Link>
             <Link href="#" className="hover:opacity-90 transition-opacity">
-              <Image src="/googleplay.png" alt="Google Play" width={140} height={45} className="h-12 w-auto" />
+              <Image
+                src="/googleplay.png"
+                alt="Google Play"
+                width={140}
+                height={45}
+                className="h-12 w-auto"
+              />
             </Link>
           </div>
         </div>
@@ -143,14 +179,26 @@ export default function Home() {
       {/* Partners Section (Simplified) */}
       <section className="py-16 bg-gray-50">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-2xl font-bold mb-8 text-black uppercase">Nasi Partnerzy</h2>
+          <h2 className="text-2xl font-bold mb-8 text-black uppercase">
+            Nasi Partnerzy
+          </h2>
           <div className="flex flex-wrap justify-center gap-8 opacity-60 grayscale hover:grayscale-0 transition-all duration-500">
             {/* Placeholders for partners */}
-            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">Partner 1</div>
-            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">Partner 2</div>
-            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">Partner 3</div>
-            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">Partner 4</div>
-            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">Partner 5</div>
+            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">
+              Partner 1
+            </div>
+            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">
+              Partner 2
+            </div>
+            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">
+              Partner 3
+            </div>
+            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">
+              Partner 4
+            </div>
+            <div className="w-32 h-16 bg-gray-300 flex items-center justify-center text-xs">
+              Partner 5
+            </div>
           </div>
         </div>
       </section>
@@ -169,31 +217,79 @@ export default function Home() {
             <div>
               <h4 className="font-bold text-lg mb-4 text-primary">Na skróty</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="#" className="hover:text-primary">PIN do karty</Link></li>
-                <li><Link href="#" className="hover:text-primary">Dla reklamodawców</Link></li>
-                <li><Link href="#" className="hover:text-primary">Jak zostać partnerem</Link></li>
-                <li><Link href="#" className="hover:text-primary">Mapa strony</Link></li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    PIN do karty
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Dla reklamodawców
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Jak zostać partnerem
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Mapa strony
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
               <h4 className="font-bold text-lg mb-4 text-primary">Dokumenty</h4>
               <ul className="space-y-2 text-gray-400">
-                <li><Link href="#" className="hover:text-primary">Regulaminy</Link></li>
-                <li><Link href="#" className="hover:text-primary">Polityka prywatności</Link></li>
-                <li><Link href="#" className="hover:text-primary">Deklaracja dostępności</Link></li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Regulaminy
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Polityka prywatności
+                  </Link>
+                </li>
+                <li>
+                  <Link href="#" className="hover:text-primary">
+                    Deklaracja dostępności
+                  </Link>
+                </li>
               </ul>
             </div>
             <div>
-              <h4 className="font-bold text-lg mb-4 text-primary">Social Media</h4>
+              <h4 className="font-bold text-lg mb-4 text-primary">
+                Social Media
+              </h4>
               <div className="flex space-x-4">
-                <Link href="#" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">F</Link>
-                <Link href="#" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">I</Link>
-                <Link href="#" className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors">T</Link>
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  F
+                </Link>
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  I
+                </Link>
+                <Link
+                  href="#"
+                  className="w-10 h-10 bg-gray-700 rounded-full flex items-center justify-center hover:bg-primary transition-colors"
+                >
+                  T
+                </Link>
               </div>
             </div>
           </div>
           <div className="border-t border-gray-800 pt-8 text-center text-gray-500 text-xs">
-            <p>&copy; {new Date().getFullYear()} Karta Łodzianina. Wszelkie prawa zastrzeżone.</p>
+            <p>
+              &copy; {new Date().getFullYear()} Karta Łodzianina. Wszelkie prawa
+              zastrzeżone.
+            </p>
             <p className="mt-2">Projekt i realizacja: Clone by AI</p>
           </div>
         </div>
