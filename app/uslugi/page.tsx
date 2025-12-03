@@ -241,6 +241,53 @@ const services: ServiceLocation[] = [
       "sport"
     ]
   },
+  {
+    id: 11,
+    name: "Ścianka Wspinaczkowa VertiŁódź",
+    lat: 51.7598,
+    lng: 19.4480,
+    status: "wszystkie",
+    description: "Nowoczesna ścianka wspinaczkowa dla początkujących i zaawansowanych.",
+    fullDescription:
+      "Ścianka Wspinaczkowa VertiŁódź to przestrzeń dla miłośników wspinaczki sportowej i boulderingu. Oferujemy liczne drogi o różnym stopniu trudności, kursy dla początkujących, treningi indywidualne i grupowe oraz sprzęt do wypożyczenia. Prowadzimy też zajęcia dla dzieci, obozy wspinaczkowe i imprezy integracyjne. Godziny otwarcia: poniedziałek–piątek 10:00–22:00, weekendy 9:00–20:00.",
+    category: "rozrywka, sport, wspinaczka",
+    tags: [
+      "ścianka wspinaczkowa",
+      "bouldering",
+      "kursy wspinaczkowe",
+      "szkolenia",
+      "wypożyczalnia sprzętu",
+      "imprezy integracyjne",
+      "zajęcia dla dzieci",
+      "treningi indywidualne",
+      "obozy",
+      "sport",
+      "wieczorna ścianka"
+    ]
+  },
+  {
+    id: 12,
+    name: "Escape Room Labirynt Łódź",
+    lat: 51.7614,
+    lng: 19.4542,
+    status: "wszystkie",
+    description: "Emocjonujące pokoje zagadek o różnym poziomie trudności.",
+    fullDescription:
+      "Escape Room Labirynt Łódź oferuje niezwykłe pokoje zagadek pełne logicznych łamigłówek, efektów specjalnych i fabuł, które wciągają od pierwszej minuty. Idealne miejsce na wieczór z przyjaciółmi, randkę, urodziny czy integrację firmową. Do wyboru pokoje horror, przygodowe i detektywistyczne. Otwarte codziennie od 11:00 do 23:00.",
+    category: "rozrywka, atrakcje, escape room",
+    tags: [
+      "escape room",
+      "zagadki",
+      "łamigłówki",
+      "przygoda",
+      "horror",
+      "detektywistyczny",
+      "integracja",
+      "rozrywka",
+      "emocje",
+      "team building"
+    ]
+  },
 ];
 
 export default function UslugiPage() {
