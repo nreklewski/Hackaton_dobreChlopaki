@@ -4,7 +4,6 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="min-h-screen flex flex-col font-sans text-text-dark">
-
       {/* Hero Section */}
       <section className="relative h-[500px] lg:h-[600px] w-full bg-gray-100 overflow-hidden">
         <Image

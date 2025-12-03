@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import { MapContainer, TileLayer, Marker, Popup, useMap } from "react-leaflet";
+import { MapContainer, TileLayer, Marker, Popup, useMap, useMapEvents } from "react-leaflet";
 import L from "leaflet";
 import Image from "next/image";
 
@@ -52,10 +52,15 @@ interface Location {
   votes?: number;
 }
 
+type TabType = "wszystkie" | "zmiany" | "inicjatywy" | "zglos-problem";
+
 interface MapComponentProps {
   activeFilter: FilterType;
+  activeTab?: TabType;
   locations: Location[];
   selectedLocationId?: number | null;
+  onMapClick?: (e: L.LeafletMouseEvent) => void;
+  reportLocation?: { lat: number; lng: number } | null;
 }
 
 // Component to handle map centering when location is selected
@@ -67,17 +72,43 @@ function MapCenter({ center, zoom }: { center: [number, number]; zoom: number })
   return null;
 }
 
+// Component to handle map clicks
+function MapClickHandler({ onMapClick }: { onMapClick: (e: L.LeafletMouseEvent) => void }) {
+  useMapEvents({
+    click: onMapClick,
+  });
+  return null;
+}
+
 export default function MapComponent({
   activeFilter,
+  activeTab,
   locations,
   selectedLocationId,
+  onMapClick,
+  reportLocation,
 }: MapComponentProps) {
   const filteredLocations = locations.filter((loc) => {
-    if (activeFilter === "inicjatywy") {
+    // Jeśli aktywna zakładka to "wszystkie", pokazuj wszystkie punkty
+    if (activeTab === "wszystkie") {
+      return true;
+    }
+    // Jeśli aktywna zakładka to "inicjatywy", pokazuj tylko inicjatywy
+    if (activeTab === "inicjatywy") {
       return loc.status === "inicjatywy";
     }
-    if (activeFilter === "wszystkie") return true;
-    return loc.status === activeFilter;
+    // Jeśli aktywna zakładka to "zmiany", pokazuj tylko zmiany (nie inicjatywy)
+    if (activeTab === "zmiany") {
+      if (loc.status === "inicjatywy") {
+        return false;
+      }
+      if (activeFilter === "wszystkie") {
+        return true;
+      }
+      return loc.status === activeFilter;
+    }
+    // Dla innych zakładek (np. zglos-problem) nie pokazuj żadnych punktów
+    return false;
   });
 
   const selectedLocation = selectedLocationId
@@ -94,16 +125,19 @@ export default function MapComponent({
 
   const center: [number, number] = selectedLocation
     ? [selectedLocation.lat, selectedLocation.lng]
-    : [51.7592, 19.456];
+    : [51.758, 19.456];
+
+  const reportIcon = createCustomIcon("#dc2626"); // Red icon for report
 
   return (
     <MapContainer
       center={center}
       zoom={selectedLocation ? 15 : 13}
-      style={{ height: "100%", width: "100%" }}
+      style={{ height: "100%", width: "100%", zIndex: 1 }}
       scrollWheelZoom={true}
     >
       <MapCenter center={center} zoom={selectedLocation ? 15 : 13} />
+      {onMapClick && <MapClickHandler onMapClick={onMapClick} />}
       <TileLayer
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
@@ -184,6 +218,20 @@ export default function MapComponent({
           </Marker>
         );
       })}
+
+      {/* Report Location Marker */}
+      {reportLocation && (
+        <Marker position={[reportLocation.lat, reportLocation.lng]} icon={reportIcon}>
+          <Popup>
+            <div className="min-w-[200px]">
+              <h4 className="font-bold text-sm mb-2">Zaznaczony punkt</h4>
+              <p className="text-xs text-gray-600">
+                Lokalizacja zgłoszenia problemu
+              </p>
+            </div>
+          </Popup>
+        </Marker>
+      )}
     </MapContainer>
   );
 }

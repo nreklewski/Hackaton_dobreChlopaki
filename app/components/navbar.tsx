@@ -16,7 +16,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <nav className="hidden lg:flex items-center space-x-6 font-medium text-sm uppercase tracking-wide">
+        <nav className="hidden lg:flex items-center space-x-6 font-medium text-sm uppercase tracking-wide ml-8">
           <Link href="/" className="hover:text-primary transition-colors">
             Home
           </Link>
@@ -65,4 +65,3 @@ export default function Navbar() {
     </header>
   );
 }
-

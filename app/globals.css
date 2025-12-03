@@ -34,6 +34,24 @@ body {
   border: none !important;
 }
 
+/* Leaflet z-index fixes to prevent overlapping navbar and overlays */
+.leaflet-container {
+  z-index: 1 !important;
+}
+
+.leaflet-pane {
+  z-index: 1 !important;
+}
+
+.leaflet-top,
+.leaflet-bottom {
+  z-index: 2 !important;
+}
+
+.leaflet-control {
+  z-index: 2 !important;
+}
+
 /* Carousel Stack Styles */
 .card-stack-container {
   position: relative;
