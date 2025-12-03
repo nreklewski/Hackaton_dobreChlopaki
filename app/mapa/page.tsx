@@ -358,6 +358,7 @@ export default function MapaPage() {
     setSliderValue(percent);
   };
 
+  // Filtrowanie dla mapy (zależy od activeTab)
   const filteredLocations = locations.filter((loc) => {
     if (activeTab === "wszystkie") {
       return true;
@@ -372,6 +373,22 @@ export default function MapaPage() {
       return loc.status === activeFilter;
     }
     return false;
+  });
+
+  // Filtrowanie dla sekcji "Zmiany" - zawsze pokazuje tylko zmiany (nie inicjatywy)
+  const zmianyLocations = locations.filter((loc) => {
+    if (loc.status === "inicjatywy") {
+      return false;
+    }
+    if (activeFilter === "wszystkie") {
+      return true;
+    }
+    return loc.status === activeFilter;
+  });
+
+  // Filtrowanie dla sekcji "Inicjatywy" - zawsze pokazuje tylko inicjatywy
+  const inicjatywyLocations = locations.filter((loc) => {
+    return loc.status === "inicjatywy";
   });
 
   const toggleExampleExpanded = (id: number) => {
@@ -409,7 +426,7 @@ export default function MapaPage() {
   };
 
   return (
-    <main className="min-h-screen flex flex-col font-sans text-text-dark bg-gray-50 pt-20">
+    <main className="min-h-screen flex flex-col font-sans text-text-dark bg-gray-50">
       <div className="flex flex-col lg:flex-row min-h-[calc(100vh-80px)] relative z-10">
         {/* Left Column - 1/4 width */}
         <motion.div
@@ -545,7 +562,7 @@ export default function MapaPage() {
                         Ostatnie renowacje
                       </h4>
                       <div className="space-y-3">
-                        {filteredLocations.map((location, index) => (
+                        {zmianyLocations.map((location, index) => (
                           <motion.div
                             key={location.id}
                             initial={{ opacity: 0, y: 20 }}
@@ -697,7 +714,7 @@ export default function MapaPage() {
                   >
                     <div className="p-4 border-t-2 border-secondary/10 bg-linear-to-b from-white to-secondary/5">
                       <div className="space-y-3">
-                        {filteredLocations.map((location, index) => (
+                        {inicjatywyLocations.map((location, index) => (
                           <motion.div
                             key={location.id}
                             initial={{ opacity: 0, y: 20 }}

@@ -29,48 +29,52 @@ type ServiceLocation = {
 const services: ServiceLocation[] = [
   {
     id: 1,
-    name: "Serwis pojazdów elektrycznych EV-Lodz",
+    name: "Pub Pod Złotym Lwem",
     lat: 51.7592,
     lng: 19.456,
     status: "wszystkie",
-    description: "Specjalistyczny mechanik aut elektrycznych i hybrydowych.",
+    description: "Przytulny pub z szerokim wyborem piw rzemieślniczych.",
     fullDescription:
-      "Profesjonalny serwis specjalizujący się w naprawie i konserwacji pojazdów elektrycznych oraz hybrydowych. Oferujemy kompleksową obsługę techniczną, diagnostykę układów elektrycznych, wymianę baterii oraz przeglądy okresowe. Zapraszamy od poniedziałku do piątku w godzinach 8:00-18:00.",
-    category: "mechanik aut elektrycznych, serwis samochodów",
+      "Pub Pod Złotym Lwem to miejsce, gdzie spotkasz przyjazną atmosferę, szeroki wybór piw kraftowych oraz klasyczne drinki. Organizujemy wieczory tematyczne i muzykę na żywo w każdy weekend. Zapraszamy od poniedziałku do niedzieli w godzinach 16:00-2:00.",
+    category: "pub, bar, piwo rzemieślnicze",
     tags: [
-      "mechanik",
-      "auta elektryczne",
-      "samochody elektryczne",
-      "hybrydy",
-      "serwis pojazdów elektrycznych",
-      "serwis samochodów",
-      "naprawa auta",
-      "naprawa samochodu",
-      "problem z teslą",
-      "serwis tesla",
-    ],
+      "pub",
+      "bar",
+      "piwo",
+      "piwo rzemieślnicze",
+      "drinki",
+      "muzyka na żywo",
+      "spotkania towarzyskie",
+      "wieczory tematyczne",
+      "lokal przyjazny dla grup",
+      "relaks"
+    ]
   },
+
   {
     id: 2,
-    name: "Łódzkie Centrum Rowerów",
-    lat: 51.7625,
-    lng: 19.45,
+    name: "Kino Helios Łódź",
+    lat: 51.7585,
+    lng: 19.4567,
     status: "wszystkie",
-    description: "Serwis i wypożyczalnia rowerów miejskich i elektrycznych.",
+    description: "Nowoczesne kino z komfortowymi salami i najnowszymi premierami.",
     fullDescription:
-      "Kompleksowe centrum rowerowe oferujące profesjonalny serwis, naprawy oraz wypożyczalnię rowerów miejskich i elektrycznych. Zapewniamy pełny serwis techniczny, wymianę części, regulację hamulców i przerzutek. Posiadamy również sklep z akcesoriami rowerowymi.",
-    category: "serwis rowerów, rowery elektryczne",
+      "Kino Helios Łódź oferuje szeroki repertuar filmowy – od premier kinowych po seanse dla dzieci i klasykę filmową. Posiadamy komfortowe fotele, system dźwięku Dolby Atmos oraz przekąski w barze kinowym. Seanse codziennie od 10:00 do 23:00.",
+    category: "kino, rozrywka, filmy",
     tags: [
-      "rowery",
-      "rowery miejskie",
-      "rowery elektryczne",
-      "serwis rowerów",
-      "wypożyczalnia rowerów",
-      "sklep rowerowy",
-      "naprawa roweru",
-      "rower elektryczny",
-    ],
+      "kino",
+      "filmy",
+      "premiery",
+      "seanse familijne",
+      "klasyka filmowa",
+      "komfortowe fotele",
+      "dźwięk Dolby Atmos",
+      "popcorn",
+      "napoje",
+      "rozrywka"
+    ]
   },
+
   {
     id: 3,
     name: "Punkt ładowania aut elektrycznych Manufaktura",
@@ -213,6 +217,29 @@ const services: ServiceLocation[] = [
       "ekologia",
       "zajęcia językowe",
     ],
+  },
+  {
+    id: 10,
+    name: "Laser Tag Arena Łódź",
+    lat: 51.7601,
+    lng: 19.4503,
+    status: "wszystkie",
+    description: "Dynamiczna gra laserowa dla dzieci, młodzieży i dorosłych.",
+    fullDescription:
+      "Laser Tag Arena Łódź to idealne miejsce na aktywną rozrywkę z przyjaciółmi lub rodziną. Oferujemy realistyczne pole do gry laserowej, specjalne scenariusze misji oraz sprzęt najwyższej jakości. Możliwość organizacji urodzin, imprez firmowych i turniejów. Zapraszamy codziennie od 12:00 do 22:00.",
+    category: "rozrywka, aktywność, gry",
+    tags: [
+      "laser tag",
+      "gra zespołowa",
+      "aktywny wypoczynek",
+      "imprezy firmowe",
+      "urodziny",
+      "rozrywka dla dzieci",
+      "rozrywka dla dorosłych",
+      "turnieje",
+      "zabawa",
+      "sport"
+    ]
   },
 ];
 

@@ -1,4 +1,4 @@
-import Groq from "groq-sdk";
+import { GoogleGenerativeAI } from "@google/generative-ai";
 import { NextRequest, NextResponse } from "next/server";
 
 type ServiceItem = {
@@ -9,9 +9,9 @@ type ServiceItem = {
   tags: string[];
 };
 
-const groq = new Groq({
-  apiKey: process.env.GROQ_API_KEY,
-});
+const genAI = new GoogleGenerativeAI(
+  process.env.GEMINI_API_KEY || ""
+);
 
 export async function POST(req: NextRequest) {
   try {
@@ -28,9 +28,9 @@ export async function POST(req: NextRequest) {
       );
     }
 
-    if (!process.env.GROQ_API_KEY) {
+    if (!process.env.GEMINI_API_KEY) {
       return NextResponse.json(
-        { error: "GROQ_API_KEY is not configured on the server." },
+        { error: "GEMINI_API_KEY is not configured on the server." },
         { status: 500 }
       );
     }
@@ -62,16 +62,19 @@ Zwróć JSON z jednym polem "items", które jest tablicą obiektów { "id": numb
 Pole "score" to Twoja ocena dopasowania w procentach (0–100). Posortuj "items" malejąco po "score".
 Jeśli usługa nie pasuje, nadaj jej niski wynik (<30). Nie dodawaj żadnego innego tekstu.`;
 
-    const completion = await groq.chat.completions.create({
-      model: "llama-3.1-8b-instant",
-      messages: [
-        { role: "system", content: systemPrompt },
-        { role: "user", content: userPrompt },
-      ],
+    // Używamy gemini-pro jako stabilnego modelu
+    // Alternatywnie można użyć: "gemini-1.5-pro", "gemini-1.5-flash-latest"
+    const model = genAI.getGenerativeModel({ 
+      model: "gemini-2.5-flash-lite",
+      systemInstruction: systemPrompt,
+    });
+
+    const result = await model.generateContent(userPrompt, {
       temperature: 0,
     });
 
-    let rawText = completion.choices[0]?.message?.content ?? "";
+    const response = result.response;
+    let rawText = response.text() ?? "";
 
     // Spróbuj wyciągnąć czystego JSON-a nawet jeśli model dodał komentarz lub ```
     const jsonMatch = rawText.match(/\{[\s\S]*\}/);
